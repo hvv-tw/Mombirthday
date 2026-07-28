@@ -3,22 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Mom — 07.28</title>
+<title>Happy Birthday Mom — July 28 Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+TC:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,400&family=Noto+Serif+TC:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg-primary: #121418;
-  --bg-secondary: #1a1d24;
-  --text-main: #f1f3f5;
-  --text-sub: #9ca3af;
-  --text-accent: #e2e8f0;
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.12);
-  --glass-hover-border: rgba(255, 255, 255, 0.35);
-  --glass-shadow: rgba(0, 0, 0, 0.4);
-  --border-light: rgba(226, 232, 240, 0.15);
+  --bg-dark: #0a0b0e;
+  --bg-surface: #12141a;
+  --bg-surface-elevated: #1a1d26;
+  --text-primary: #ffffff;
+  --text-secondary: #d1d5db;
+  --text-muted: #828a9a;
+  --platinum-bright: #f8fafc;
+  --silver-glow: rgba(241, 245, 249, 0.25);
+  --silver-border: rgba(255, 255, 255, 0.16);
+  --silver-border-active: rgba(255, 255, 255, 0.45);
+  --champagne-accent: #e2c99f;
+  --champagne-glow: rgba(226, 201, 159, 0.2);
+  --glass-bg: rgba(255, 255, 255, 0.025);
+  --glass-bg-heavy: rgba(18, 20, 26, 0.65);
+  --glass-shadow: rgba(0, 0, 0, 0.6);
+  --cubic-origami: cubic-bezier(0.16, 1, 0.3, 1);
+  --cubic-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 * {
@@ -29,475 +36,937 @@
   -webkit-font-smoothing: antialiased;
 }
 
-body {
-  background-color: var(--bg-primary);
-  color: var(--text-main);
-  font-family: 'Noto Serif TC', serif;
-  overflow-x: hidden;
-  perspective: 1200px;
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0b0e;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #334155, #94a3b8, #334155);
+  border-radius: 3px;
 }
 
-#canvas-bg {
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: 'Noto Serif TC', serif;
+  overflow-x: hidden;
+  perspective: 1400px;
+}
+
+#canvas-background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1;
+  z-index: -2;
   pointer-events: none;
 }
 
-.top-bar {
+.ambient-light-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.12;
+  animation: floatOrb 20s infinite alternate ease-in-out;
+}
+
+.orb-1 {
+  top: 10%;
+  left: 15%;
+  width: 500px;
+  height: 500px;
+  background: #ffffff;
+}
+
+.orb-2 {
+  bottom: 15%;
+  right: 10%;
+  width: 600px;
+  height: 600px;
+  background: #94a3b8;
+  animation-delay: -10s;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(60px, 80px) scale(1.15); }
+}
+
+.header-navigation-hud {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 25px 40px;
+  padding: 28px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 100;
-  background: linear-gradient(180deg, rgba(18,20,24,0.8) 0%, rgba(18,20,24,0) 100%);
-  backdrop-filter: blur(8px);
+  z-index: 1000;
+  background: linear-gradient(180deg, rgba(10, 11, 14, 0.85) 0%, rgba(10, 11, 14, 0) 100%);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.brand-title {
+.nav-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand-emblem-svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--platinum-bright);
+  stroke-width: 1.5;
+  transform: rotate(45deg);
+  animation: emblemRotate 25s linear infinite;
+}
+
+@keyframes emblemRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.brand-text-latin {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  letter-spacing: 5px;
+  color: var(--platinum-bright);
+  font-weight: 600;
+}
+
+.nav-date-group {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   letter-spacing: 4px;
-  color: var(--text-accent);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.date-divider-dot {
+  width: 4px;
+  height: 4px;
+  background: var(--champagne-accent);
+  border-radius: 50%;
+}
+
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #334155, var(--platinum-bright), var(--champagne-accent));
+  z-index: 1001;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.scroll-hint-indicator {
+  position: fixed;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 900;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.scroll-hint-line {
+  width: 1px;
+  height: 45px;
+  background: linear-gradient(180deg, var(--platinum-bright), transparent);
+  animation: linePulse 2s infinite ease-in-out;
+}
+
+@keyframes linePulse {
+  0%, 100% { transform: scaleY(0.6); opacity: 0.3; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+.scroll-hint-text {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  color: var(--text-muted);
   text-transform: uppercase;
 }
 
-.date-badge {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.95rem;
-  letter-spacing: 3px;
-  color: var(--text-sub);
-  border-bottom: 1px solid var(--border-light);
-  padding-bottom: 4px;
-}
-
-.page-wrapper {
+.viewport-container {
   width: 100%;
   position: relative;
 }
 
-.section-block {
+.section-viewport {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 120px 20px;
+  padding: 140px 20px;
   position: relative;
   transform-style: preserve-3d;
 }
 
-.morph-card {
+.transformer-origami-card {
   width: 100%;
-  max-width: 900px;
+  max-width: 960px;
   background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  border-radius: 4px;
-  padding: 70px 60px;
-  box-shadow: 0 30px 60px var(--glass-shadow);
-  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease, border-color 0.5s ease;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid var(--silver-border);
+  border-radius: 6px;
+  padding: 80px 70px;
+  box-shadow: 0 30px 80px var(--glass-shadow), inset 0 0 30px rgba(255, 255, 255, 0.02);
+  transition: transform 1.2s var(--cubic-origami), opacity 1.2s ease, border-color 0.6s ease, box-shadow 0.6s ease;
   transform-style: preserve-3d;
   position: relative;
+  overflow: hidden;
 }
 
-.morph-card:hover {
-  border-color: var(--glass-hover-border);
+.transformer-origami-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.06) 0%, transparent 60%);
+  pointer-events: none;
 }
 
-.morph-state-hidden {
-  transform: translateY(80px) rotateX(-15deg) scale(0.92);
+.transformer-origami-card:hover {
+  border-color: var(--silver-border-active);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+.watermark-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Cinzel', serif;
+  font-size: 11rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.015);
+  letter-spacing: 12px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+.card-content-relative {
+  position: relative;
+  z-index: 1;
+}
+
+.origami-fold-top {
+  transform: translateY(120px) rotateX(-35deg) rotateY(15deg) translateZ(-150px) scale(0.85);
   opacity: 0;
+  filter: blur(10px);
 }
 
-.morph-state-visible {
-  transform: translateY(0) rotateX(0deg) scale(1);
-  opacity: 1;
+.origami-fold-bottom {
+  transform: translateY(-120px) rotateX(35deg) rotateY(-15deg) translateZ(-150px) scale(0.85);
+  opacity: 0;
+  filter: blur(10px);
 }
 
-.hero-header {
-  text-align: center;
-  margin-bottom: 50px;
+.origami-fold-active {
+  transform: translateY(0) rotateX(0deg) rotateY(0deg) translateZ(0px) scale(1) !important;
+  opacity: 1 !important;
+  filter: blur(0px) !important;
 }
 
-.hero-subtitle-top {
+.card-header-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 25px;
+  margin-bottom: 45px;
+}
+
+.meta-tag-pill {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: var(--champagne-accent);
+  padding: 6px 16px;
+  border: 1px solid rgba(226, 201, 159, 0.3);
+  border-radius: 20px;
+  background: rgba(226, 201, 159, 0.04);
+}
+
+.meta-number {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  letter-spacing: 6px;
-  color: var(--text-sub);
-  text-transform: uppercase;
-  margin-bottom: 15px;
-}
-
-.hero-main-title {
-  font-size: 3.2rem;
-  font-weight: 500;
-  letter-spacing: 6px;
-  color: #ffffff;
-  margin-bottom: 20px;
-  line-height: 1.3;
-}
-
-.divider-line {
-  width: 60px;
-  height: 1px;
-  background: var(--text-sub);
-  margin: 30px auto;
-  opacity: 0.5;
-}
-
-.content-paragraph {
   font-size: 1.1rem;
-  line-height: 2.2;
-  color: var(--text-sub);
+  letter-spacing: 4px;
+  color: var(--text-muted);
+}
+
+.hero-title-main {
+  font-size: 3.6rem;
+  font-weight: 400;
+  letter-spacing: 8px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.hero-subtitle-latin {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  letter-spacing: 8px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 40px;
+  font-style: italic;
+}
+
+.thin-gold-line {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--champagne-accent), transparent);
+  margin: 0 auto 40px auto;
+}
+
+.paragraph-prose-text {
+  font-size: 1.15rem;
+  line-height: 2.3;
+  color: var(--text-secondary);
   text-align: justify;
   font-weight: 300;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
-.grid-two-col {
+.dual-grid-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
+  margin-top: 50px;
+}
+
+.astrology-mandala-card {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid var(--silver-border);
+  border-radius: 4px;
+  padding: 40px 35px;
+  position: relative;
+  transition: all 0.5s var(--cubic-origami);
+}
+
+.astrology-mandala-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--silver-border-active);
+  transform: translateY(-6px);
+}
+
+.mandala-svg-frame {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 25px auto;
+  display: block;
+}
+
+.mandala-svg-frame circle, .mandala-svg-frame path, .mandala-svg-frame rect {
+  stroke: var(--platinum-bright);
+  stroke-width: 1;
+  fill: none;
+  transition: all 0.6s ease;
+}
+
+.astrology-mandala-card:hover .mandala-svg-frame circle {
+  stroke: var(--champagne-accent);
+}
+
+.mandala-title-text {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--platinum-bright);
+  text-align: center;
+  margin-bottom: 12px;
+  letter-spacing: 3px;
+}
+
+.mandala-subtitle-text {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: var(--champagne-accent);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.mandala-body-text {
+  font-size: 0.98rem;
+  line-height: 2;
+  color: var(--text-muted);
+  font-weight: 300;
+  text-align: justify;
+}
+
+.timeline-staggered-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   margin-top: 40px;
 }
 
-.attribute-box {
-  border-left: 1px solid var(--border-light);
-  padding-left: 25px;
-  transition: transform 0.4s ease, border-color 0.4s ease;
+.timeline-staggered-item {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  padding: 25px 30px;
+  background: rgba(255, 255, 255, 0.01);
+  border-left: 2px solid var(--silver-border);
+  transition: all 0.4s ease;
 }
 
-.attribute-box:hover {
-  transform: translateX(8px);
-  border-color: #ffffff;
+.timeline-staggered-item:hover {
+  border-left-color: var(--champagne-accent);
+  background: rgba(255, 255, 255, 0.03);
+  transform: translateX(10px);
 }
 
-.attribute-title {
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: #ffffff;
-  margin-bottom: 12px;
+.timeline-roman-num {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: var(--champagne-accent);
+  font-weight: 700;
+  min-width: 40px;
+}
+
+.timeline-item-title {
+  font-size: 1.15rem;
+  color: var(--platinum-bright);
+  margin-bottom: 8px;
+  font-weight: 600;
   letter-spacing: 2px;
 }
 
-.attribute-desc {
+.timeline-item-desc {
   font-size: 0.95rem;
-  line-height: 1.9;
-  color: var(--text-sub);
+  color: var(--text-muted);
+  line-height: 1.8;
   font-weight: 300;
 }
 
-.collision-container {
-  display: flex;
-  flex-wrap: wrap;
+.collision-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
-  justify-content: center;
   margin-top: 40px;
 }
 
-.collision-item {
+.collision-physics-button {
   background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--glass-border);
-  padding: 20px 35px;
-  border-radius: 2px;
-  font-size: 1rem;
-  letter-spacing: 2px;
-  color: var(--text-main);
+  border: 1px solid var(--silver-border);
+  padding: 28px 20px;
+  border-radius: 4px;
+  text-align: center;
   cursor: pointer;
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
+  transition: transform 0.25s var(--cubic-spring), background-color 0.4s ease, border-color 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.collision-item:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.4);
+.collision-physics-button:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--silver-border-active);
 }
 
-.letter-unfold-wrapper {
+.collision-button-label {
+  font-size: 1.05rem;
+  letter-spacing: 2px;
+  color: var(--platinum-bright);
+  font-weight: 400;
+}
+
+.unfold-ribbon-container {
   margin-top: 50px;
   text-align: center;
 }
 
-.unfold-btn {
+.unfold-trigger-btn {
   background: transparent;
-  border: 1px solid var(--text-main);
-  color: var(--text-main);
-  padding: 16px 45px;
+  border: 1px solid var(--platinum-bright);
+  color: var(--platinum-bright);
+  padding: 18px 55px;
   font-family: 'Noto Serif TC', serif;
-  font-size: 1rem;
-  letter-spacing: 4px;
+  font-size: 1.05rem;
+  letter-spacing: 5px;
   cursor: pointer;
   transition: all 0.5s ease;
   position: relative;
   overflow: hidden;
 }
 
-.unfold-btn:hover {
-  background: #ffffff;
-  color: #000000;
+.unfold-trigger-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.7s ease;
 }
 
-.letter-body {
+.unfold-trigger-btn:hover::before {
+  left: 100%;
+}
+
+.unfold-trigger-btn:hover {
+  background: var(--platinum-bright);
+  color: var(--bg-dark);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.letter-vault-body {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease;
+  transition: max-height 1.4s var(--cubic-origami), opacity 1.2s ease;
   opacity: 0;
   text-align: left;
-  margin-top: 40px;
-  border-top: 1px solid var(--border-light);
-  padding-top: 40px;
+  margin-top: 50px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 50px;
 }
 
-.letter-body.active {
-  max-height: 1000px;
+.letter-vault-body.unfolded {
+  max-height: 1200px;
   opacity: 1;
 }
 
-.letter-text {
+.letter-salutation {
+  font-size: 1.3rem;
+  color: var(--champagne-accent);
+  margin-bottom: 25px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.letter-paragraph-block {
   font-size: 1.15rem;
   line-height: 2.3;
-  color: var(--text-main);
+  color: var(--text-secondary);
   font-weight: 300;
+  margin-bottom: 25px;
+  text-align: justify;
 }
 
-.footer-space {
-  text-align: center;
-  padding: 80px 20px;
+.letter-signature-block {
+  text-align: right;
+  margin-top: 40px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 0.9rem;
-  letter-spacing: 4px;
-  color: var(--text-sub);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 1.25rem;
+  color: var(--platinum-bright);
+  letter-spacing: 3px;
+  font-style: italic;
 }
 
-@media (max-width: 768px) {
-  .hero-main-title { font-size: 2.2rem; }
-  .morph-card { padding: 40px 25px; }
-  .grid-two-col { grid-template-columns: 1fr; gap: 30px; }
-  .top-bar { padding: 20px; }
+.site-footer {
+  text-align: center;
+  padding: 90px 20px;
+  background: rgba(10, 11, 14, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 5px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .hero-title-main { font-size: 2.5rem; }
+  .transformer-origami-card { padding: 45px 30px; }
+  .dual-grid-section { grid-template-columns: 1fr; gap: 30px; }
+  .header-navigation-hud { padding: 20px 25px; }
+  .watermark-bg-text { font-size: 6rem; }
 }
 </style>
 </head>
 <body>
 
-<canvas id="canvas-bg"></canvas>
+<canvas id="canvas-background"></canvas>
+<div class="ambient-light-orb orb-1"></div>
+<div class="ambient-light-orb orb-2"></div>
+<div class="scroll-progress-bar" id="scrollProgressBar"></div>
 
-<div class="top-bar">
-  <div class="brand-title">ELEGANCE & REFLECTION</div>
-  <div class="date-badge">JULY 28</div>
+<div class="header-navigation-hud">
+  <div class="nav-brand-group">
+    <svg class="brand-emblem-svg" viewBox="0 0 24 24">
+      <rect x="4" y="4" width="16" height="16"/>
+    </svg>
+    <span class="brand-text-latin">SILVER ORIGAMI</span>
+  </div>
+  <div class="nav-date-group">
+    <span>JULY 28</span>
+    <div class="date-divider-dot"></div>
+    <span>CELEBRATION PROTOCOL</span>
+  </div>
 </div>
 
-<div class="page-wrapper">
+<div class="scroll-hint-indicator" id="scrollHint">
+  <div class="scroll-hint-line"></div>
+  <span class="scroll-hint-text">SCROLL TO UNFOLD</span>
+</div>
 
-  <section class="section-block">
-    <div class="morph-card morph-state-hidden" id="card1">
-      <div class="hero-header">
-        <div class="hero-subtitle-top">FOR MY DEAREST MOTHER</div>
-        <h1 class="hero-main-title">母親 生日快樂</h1>
-        <div class="divider-line"></div>
-      </div>
-      <p class="content-paragraph">
-        歲月沉澱出成熟與溫柔，在這個屬於您的特別日子裡，謹以此份簡潔而莊重的祝福，感謝您多年來為家庭付出的點點滴滴。您的堅韌與關懷，永遠是家中最沉靜而穩固的力量。
-      </p>
-    </div>
-  </section>
+<div class="viewport-container">
 
-  <section class="section-block">
-    <div class="morph-card morph-state-hidden" id="card2">
-      <div class="hero-header">
-        <div class="hero-subtitle-top">CHARACTERISTICS</div>
-        <h2 style="font-size: 2.2rem; font-weight: 400; letter-spacing: 4px; color: #fff;">特質與特質的交織</h2>
-        <div class="divider-line"></div>
-      </div>
-
-      <div class="grid-two-col">
-        <div class="attribute-box">
-          <div class="attribute-title">獅子座的溫暖與堅定</div>
-          <div class="attribute-desc">
-            如同夏日晴空般明朗而有力量，您用自信與包容引領著家庭，給予我們面對外界的勇氣與底氣。
-          </div>
+  <section class="section-viewport">
+    <div class="transformer-origami-card origami-fold-top origami-fold-active" id="cardPhase1">
+      <div class="watermark-bg-text">JULY 28</div>
+      <div class="card-content-relative">
+        <div class="card-header-meta">
+          <span class="meta-tag-pill">PHASE 01 // MATRIARCH</span>
+          <span class="meta-number">07.28</span>
         </div>
-        <div class="attribute-box">
-          <div class="attribute-title">屬鼠的睿智與細緻</div>
-          <div class="attribute-desc">
-            於歲月細微處展現智慧，無微不至地照顧著生活的每個角落，將繁雜的日常整理得井井有條。
-          </div>
+        <h1 class="hero-title-main">母親 生日快樂</h1>
+        <div class="hero-subtitle-latin">Elegance, Strength, and Unconditional Grace</div>
+        <div class="thin-gold-line"></div>
+        <p class="paragraph-prose-text">
+          歲月沉澱出沉穩與溫柔。在這個特別的日子裡，謹以此份白銀質感的幾何致意，感謝您多年來為家庭付出的點點滴滴。您的堅韌與關懷，永遠是家中最沉靜而穩固的力量。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-viewport">
+    <div class="transformer-origami-card origami-fold-bottom" id="cardPhase2">
+      <div class="watermark-bg-text">ASTRO</div>
+      <div class="card-content-relative">
+        <div class="card-header-meta">
+          <span class="meta-tag-pill">PHASE 02 // DUAL HARMONY</span>
+          <span class="meta-number">LEO / RAT</span>
         </div>
-      </div>
-    </div>
-  </section>
+        <h2 style="font-size: 2.4rem; text-align: center; color: #fff; letter-spacing: 6px; font-weight: 400; margin-bottom: 15px;">雙重符文與特質的和諧</h2>
+        <div class="thin-gold-line"></div>
 
-  <section class="section-block">
-    <div class="morph-card morph-state-hidden" id="card3">
-      <div class="hero-header">
-        <div class="hero-subtitle-top">EXPRESSIONS OF GRATITUDE</div>
-        <h2 style="font-size: 2.2rem; font-weight: 400; letter-spacing: 4px; color: #fff;">點擊體驗意想不到的結構碰撞</h2>
-        <div class="divider-line"></div>
-      </div>
-      
-      <p style="text-align: center; color: var(--text-sub); margin-bottom: 30px; font-weight: 300;">
-        輕觸下方方塊，感受動態結構反饋與真心致意
-      </p>
+        <div class="dual-grid-section">
+          <div class="astrology-mandala-card">
+            <svg class="mandala-svg-frame" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="42"/>
+              <circle cx="50" cy="50" r="30"/>
+              <path d="M50 8 L50 92 M8 50 L92 50"/>
+            </svg>
+            <div class="mandala-title-text">獅子座的溫暖</div>
+            <div class="mandala-subtitle-text">LEO // SUN POWER</div>
+            <div class="mandala-body-text">
+              如同夏日晴空般明朗而有力量，您用自信與包容引領著家庭，給予我們面對外界的勇氣與底氣。
+            </div>
+          </div>
 
-      <div class="collision-container">
-        <div class="collision-item" onclick="triggerCollision(this)">感謝您的默默守護</div>
-        <div class="collision-item" onclick="triggerCollision(this)">祝您歲月靜好</div>
-        <div class="collision-item" onclick="triggerCollision(this)">願您身體安康</div>
-        <div class="collision-item" onclick="triggerCollision(this)">保持優雅與從容</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-block">
-    <div class="morph-card morph-state-hidden" id="card4">
-      <div class="hero-header">
-        <div class="hero-subtitle-top">HEARTFELT LETTER</div>
-        <h2 style="font-size: 2.2rem; font-weight: 400; letter-spacing: 4px; color: #fff;">衷心致意</h2>
-        <div class="divider-line"></div>
-      </div>
-
-      <div class="letter-unfold-wrapper">
-        <button class="unfold-btn" onclick="toggleLetter()">展開專屬祝福信箋</button>
-
-        <div class="letter-body" id="letterContent">
-          <div class="letter-text">
-            親愛的媽媽：<br><br>
-            祝您 7 月 28 日生日快樂。<br><br>
-            平時在日常生活中，或許鮮少有機會將心中的感謝完整表达。藉由這個簡單而特別的頁面，想對您說一聲謝謝。<br><br>
-            感謝您多年來無私的付出，無論是家庭瑣事的料理，還是對我們成長過程中的關懷與支持，都凝聚著您的無數心血。<br><br>
-            新的一歲，沒有過多繁複的願望，唯願您身體健康、心情舒暢。在未來的每一天裡，都能擁有從容的生活節奏，享受屬於自己的美好時光。<br><br>
-            —— 孩子 敬上
+          <div class="astrology-mandala-card">
+            <svg class="mandala-svg-frame" viewBox="0 0 100 100">
+              <rect x="15" y="15" width="70" height="70" transform="rotate(45 50 50)"/>
+              <circle cx="50" cy="50" r="20"/>
+            </svg>
+            <div class="mandala-title-text">靈鼠年的睿智</div>
+            <div class="mandala-subtitle-text">ZODIAC RAT // WISDOM</div>
+            <div class="mandala-body-text">
+              於歲月細微處展現智慧，無微不至地照顧著生活的每個角落，將繁雜的日常整理得井井有條。
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <section class="section-viewport">
+    <div class="transformer-origami-card origami-fold-top" id="cardPhase3">
+      <div class="watermark-bg-text">DEVOTION</div>
+      <div class="card-content-relative">
+        <div class="card-header-meta">
+          <span class="meta-tag-pill">PHASE 03 // VIRTUES</span>
+          <span class="meta-number">GRATITUDE</span>
+        </div>
+        <h2 style="font-size: 2.4rem; text-align: center; color: #fff; letter-spacing: 6px; font-weight: 400; margin-bottom: 15px;">歲月裏的無聲奉獻</h2>
+        <div class="thin-gold-line"></div>
+
+        <div class="timeline-staggered-list">
+          <div class="timeline-staggered-item">
+            <div class="timeline-roman-num">I</div>
+            <div>
+              <div class="timeline-item-title">默默堅守的日常避風港</div>
+              <div class="timeline-item-desc">無論外面的風雨多大，家裡總是有您準備好的溫暖與平靜，讓每個人都能安心歸來。</div>
+            </div>
+          </div>
+          <div class="timeline-staggered-item">
+            <div class="timeline-roman-num">II</div>
+            <div>
+              <div class="timeline-item-title">細緻入微的成長關懷</div>
+              <div class="timeline-item-desc">從小到大的每個關鍵時刻，您總是默默給予最堅定的支持與最明智的建議。</div>
+            </div>
+          </div>
+          <div class="timeline-staggered-item">
+            <div class="timeline-roman-num">III</div>
+            <div>
+              <div class="timeline-item-title">優雅從容的人生態度</div>
+              <div class="timeline-item-desc">面對生活中的瑣碎與挑戰，您展現出的堅韌與從容，是我們一生學習的榜樣。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-viewport">
+    <div class="transformer-origami-card origami-fold-bottom" id="cardPhase4">
+      <div class="watermark-bg-text">BLESSING</div>
+      <div class="card-content-relative">
+        <div class="card-header-meta">
+          <span class="meta-tag-pill">PHASE 04 // PHYSICS MATRIX</span>
+          <span class="meta-number">INTERACT</span>
+        </div>
+        <h2 style="font-size: 2.4rem; text-align: center; color: #fff; letter-spacing: 6px; font-weight: 400; margin-bottom: 15px;">真心祝福動態反饋</h2>
+        <div class="thin-gold-line"></div>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px; font-weight: 300;">
+          輕觸下方祝福矩陣，感受彈性結構變形與光影碰撞
+        </p>
+
+        <div class="collision-matrix-grid">
+          <div class="collision-physics-button" onclick="triggerElasticPhysics(this)">
+            <div class="collision-button-label">願您身體安康</div>
+          </div>
+          <div class="collision-physics-button" onclick="triggerElasticPhysics(this)">
+            <div class="collision-button-label">祝您歲月靜好</div>
+          </div>
+          <div class="collision-physics-button" onclick="triggerElasticPhysics(this)">
+            <div class="collision-button-label">保持優雅從容</div>
+          </div>
+          <div class="collision-physics-button" onclick="triggerElasticPhysics(this)">
+            <div class="collision-button-label">天天心情舒暢</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-viewport">
+    <div class="transformer-origami-card origami-fold-top" id="cardPhase5">
+      <div class="watermark-bg-text">LETTER</div>
+      <div class="card-content-relative">
+        <div class="card-header-meta">
+          <span class="meta-tag-pill">PHASE 05 // HEARTFELT VAULT</span>
+          <span class="meta-number">FINAL</span>
+        </div>
+        <h2 style="font-size: 2.4rem; text-align: center; color: #fff; letter-spacing: 6px; font-weight: 400; margin-bottom: 15px;">專屬生日信箋</h2>
+        <div class="thin-gold-line"></div>
+
+        <div class="unfold-ribbon-container">
+          <button class="unfold-trigger-btn" onclick="toggleLetterVault()">展開祝福信箋</button>
+
+          <div class="letter-vault-body" id="letterVault">
+            <div class="letter-salutation">親愛的媽媽：</div>
+            <div class="letter-paragraph-block">
+              祝您 7 月 28 日生日快樂。
+            </div>
+            <div class="letter-paragraph-block">
+              平日在日常生活中，或許鮮少有機會將心中的感謝完整表達。藉由這個簡潔而特別的幾何頁面，想對您說一聲謝謝。
+            </div>
+            <div class="letter-paragraph-block">
+              感謝您多年來無私的付出，無論是家庭瑣事的料理，還是對我們成長過程中的關懷與支持，都凝聚著您的無數心血。
+            </div>
+            <div class="letter-paragraph-block">
+              新的一歲，唯願您身體健康、心情舒暢。在未來的每一天裡，都能擁有從容的生活節奏，享受屬於自己的美好時光。
+            </div>
+            <div class="letter-signature-block">
+              —— 孩子 敬上<br>
+              2026.07.28
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </div>
 
-<div class="footer-space">
-  DESIGNED WITH RESPECT AND GRATITUDE FOR MOM · 07.28
-</div>
+<footer class="site-footer">
+  SILVER ORIGAMI & PLATINUM GLASS PROTOCOL // EXCLUSIVE BIRTHDAY EDITION FOR MOM
+</footer>
 
 <script>
-const canvas = document.getElementById('canvas-bg');
-const ctx = canvas.getContext('2d');
+const bgCanvas = document.getElementById('canvas-background');
+const bgCtx = bgCanvas.getContext('2d');
 
-let w = canvas.width = window.innerWidth;
-let h = canvas.height = window.innerHeight;
+let canvasWidth = bgCanvas.width = window.innerWidth;
+let canvasHeight = bgCanvas.height = window.innerHeight;
+
+let mouseX = canvasWidth / 2;
+let mouseY = canvasHeight / 2;
 
 window.addEventListener('resize', () => {
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = window.innerHeight;
+  canvasWidth = bgCanvas.width = window.innerWidth;
+  canvasHeight = bgCanvas.height = window.innerHeight;
 });
 
-class FloatingNode {
+window.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+class MeshNode {
   constructor() {
-    this.x = Math.random() * w;
-    this.y = Math.random() * h;
-    this.vx = (Math.random() - 0.5) * 0.4;
-    this.vy = (Math.random() - 0.5) * 0.4;
+    this.x = Math.random() * canvasWidth;
+    this.y = Math.random() * canvasHeight;
+    this.baseX = this.x;
+    this.baseY = this.y;
+    this.vx = (Math.random() - 0.5) * 0.5;
+    this.vy = (Math.random() - 0.5) * 0.5;
     this.radius = Math.random() * 1.5 + 0.5;
   }
   update() {
     this.x += this.vx;
     this.y += this.vy;
-    if (this.x < 0 || this.x > w) this.vx *= -1;
-    if (this.y < 0 || this.y > h) this.vy *= -1;
+
+    if (this.x < 0 || this.x > canvasWidth) this.vx *= -1;
+    if (this.y < 0 || this.y > canvasHeight) this.vy *= -1;
+
+    const dx = mouseX - this.x;
+    const dy = mouseY - this.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    if (dist < 150) {
+      const angle = Math.atan2(dy, dx);
+      const force = (150 - dist) / 150;
+      this.x -= Math.cos(angle) * force * 3;
+      this.y -= Math.sin(angle) * force * 3;
+    }
   }
   draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.25)';
-    ctx.fill();
+    bgCtx.beginPath();
+    bgCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    bgCtx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+    bgCtx.fill();
   }
 }
 
-const nodes = Array.from({ length: 60 }, () => new FloatingNode());
+const meshNodes = Array.from({ length: 80 }, () => new MeshNode());
 
-function animateCanvas() {
-  ctx.clearRect(0, 0, w, h);
+function renderBackgroundCanvas() {
+  bgCtx.clearRect(0, 0, canvasWidth, canvasHeight);
 
-  for (let i = 0; i < nodes.length; i++) {
-    for (let j = i + 1; j < nodes.length; j++) {
-      const dx = nodes[i].x - nodes[j].x;
-      const dy = nodes[i].y - nodes[j].y;
+  for (let i = 0; i < meshNodes.length; i++) {
+    for (let j = i + 1; j < meshNodes.length; j++) {
+      const dx = meshNodes[i].x - meshNodes[j].x;
+      const dy = meshNodes[i].y - meshNodes[j].y;
       const dist = Math.sqrt(dx * dx + dy * dy);
 
-      if (dist < 140) {
-        ctx.beginPath();
-        ctx.moveTo(nodes[i].x, nodes[i].y);
-        ctx.lineTo(nodes[j].x, nodes[j].y);
-        ctx.strokeStyle = `rgba(255, 255, 255, ${0.08 * (1 - dist / 140)})`;
-        ctx.lineWidth = 0.6;
-        ctx.stroke();
+      if (dist < 130) {
+        bgCtx.beginPath();
+        bgCtx.moveTo(meshNodes[i].x, meshNodes[i].y);
+        bgCtx.lineTo(meshNodes[j].x, meshNodes[j].y);
+        bgCtx.strokeStyle = `rgba(255, 255, 255, ${0.1 * (1 - dist / 130)})`;
+        bgCtx.lineWidth = 0.6;
+        bgCtx.stroke();
       }
     }
   }
 
-  nodes.forEach(n => {
-    n.update();
-    n.draw();
+  meshNodes.forEach(node => {
+    node.update();
+    node.draw();
   });
 
-  requestAnimationFrame(animateCanvas);
+  requestAnimationFrame(renderBackgroundCanvas);
 }
-animateCanvas();
+renderBackgroundCanvas();
 
 const cards = [
-  document.getElementById('card1'),
-  document.getElementById('card2'),
-  document.getElementById('card3'),
-  document.getElementById('card4')
+  document.getElementById('cardPhase1'),
+  document.getElementById('cardPhase2'),
+  document.getElementById('cardPhase3'),
+  document.getElementById('cardPhase4'),
+  document.getElementById('cardPhase5')
 ];
 
-function handleScrollObserver() {
+function handleScrollPhysics() {
+  const scrollY = window.scrollY;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollY / maxScroll) * 100;
+  
+  document.getElementById('scrollProgressBar').style.width = `${progress}%`;
+
+  if (scrollY > 100) {
+    document.getElementById('scrollHint').style.opacity = '0';
+  } else {
+    document.getElementById('scrollHint').style.opacity = '1';
+  }
+
   const vh = window.innerHeight;
 
-  cards.forEach(card => {
+  cards.forEach((card) => {
     const rect = card.getBoundingClientRect();
     const cardCenter = rect.top + rect.height / 2;
     const screenCenter = vh / 2;
+    const distance = Math.abs(cardCenter - screenCenter);
 
-    if (Math.abs(cardCenter - screenCenter) < vh * 0.45) {
-      card.classList.remove('morph-state-hidden');
-      card.classList.add('morph-state-visible');
+    if (distance < vh * 0.45) {
+      card.classList.add('origami-fold-active');
     } else {
-      card.classList.remove('morph-state-visible');
-      card.classList.add('morph-state-hidden');
+      card.classList.remove('origami-fold-active');
     }
   });
 }
 
-window.addEventListener('scroll', handleScrollObserver);
-handleScrollObserver();
+window.addEventListener('scroll', handleScrollPhysics);
+handleScrollPhysics();
 
-function triggerCollision(element) {
-  element.style.transform = 'scale(0.92) translateY(-4px)';
+cards.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -6;
+    const rotateY = ((x - centerX) / centerX) * 6;
+
+    card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
+    card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+function triggerElasticPhysics(element) {
+  element.style.transform = 'scale(0.9) translateY(-6px)';
   setTimeout(() => {
-    element.style.transform = 'scale(1.08) translateY(-8px)';
+    element.style.transform = 'scale(1.1) translateY(-10px)';
+    element.style.borderColor = 'var(--champagne-accent)';
   }, 120);
   setTimeout(() => {
     element.style.transform = 'scale(1) translateY(0)';
-  }, 300);
+  }, 280);
 }
 
-function toggleLetter() {
-  const letter = document.getElementById('letterContent');
-  const btn = document.querySelector('.unfold-btn');
-  
-  if (letter.classList.contains('active')) {
-    letter.classList.remove('active');
-    btn.innerText = '展開專屬祝福信箋';
+function toggleLetterVault() {
+  const vault = document.getElementById('letterVault');
+  const btn = document.querySelector('.unfold-trigger-btn');
+
+  if (vault.classList.contains('unfolded')) {
+    vault.classList.remove('unfolded');
+    btn.innerText = '展開祝福信箋';
   } else {
-    letter.classList.add('active');
+    vault.classList.add('unfolded');
     btn.innerText = '收合信箋';
   }
 }
