@@ -3,53 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>404 - Service Discontinued</title>
+<title>404 - Service Permanently Discontinued</title>
 <style>
 :root {
-  --bg-deep-000: #000000;
-  --bg-deep-100: #030304;
-  --bg-deep-200: #060608;
-  --bg-deep-300: #0a0a0d;
-  --bg-deep-400: #0f0f14;
-  --bg-deep-500: #14141a;
-  --glass-surface-base: rgba(10, 10, 14, 0.75);
-  --glass-surface-elevated: rgba(16, 16, 22, 0.85);
-  --glass-surface-highlight: rgba(25, 25, 35, 0.95);
-  --glass-border-subtle: rgba(255, 255, 255, 0.05);
-  --glass-border-medium: rgba(255, 255, 255, 0.10);
-  --glass-border-strong: rgba(255, 255, 255, 0.18);
-  --glass-inner-glow: rgba(255, 255, 255, 0.02);
-  --glass-shadow-ambient: 0 30px 60px rgba(0, 0, 0, 0.95);
-  --glass-shadow-panel: 0 15px 35px rgba(0, 0, 0, 0.8);
-  --text-main: #f5f5f7;
-  --text-body: #a1a1aa;
-  --text-subtle: #71717a;
-  --text-muted: #42424a;
-  --text-disabled: #27272a;
-  --status-offline-red: #8f2424;
-  --status-offline-red-glow: rgba(143, 36, 36, 0.4);
-  --status-gray: #3f3f46;
-  --border-radius-xs: 4px;
-  --border-radius-sm: 8px;
-  --border-radius-md: 14px;
-  --border-radius-lg: 22px;
-  --border-radius-xl: 32px;
+  --color-black-000: #000000;
+  --color-black-100: #020203;
+  --color-black-200: #050507;
+  --color-black-300: #08080a;
+  --color-black-400: #0c0c0f;
+  --color-black-500: #101014;
+  --color-black-600: #14141a;
+  --color-black-700: #191920;
+  --color-black-800: #1e1e26;
+  --color-black-900: #252530;
+  --glass-bg-primary: rgba(8, 8, 12, 0.82);
+  --glass-bg-secondary: rgba(14, 14, 20, 0.78);
+  --glass-bg-tertiary: rgba(20, 20, 28, 0.85);
+  --glass-bg-elevated: rgba(26, 26, 36, 0.90);
+  --glass-bg-hover: rgba(32, 32, 44, 0.95);
+  --glass-border-faint: rgba(255, 255, 255, 0.03);
+  --glass-border-subtle: rgba(255, 255, 255, 0.07);
+  --glass-border-medium: rgba(255, 255, 255, 0.12);
+  --glass-border-strong: rgba(255, 255, 255, 0.20);
+  --glass-border-accent: rgba(255, 255, 255, 0.35);
+  --glass-inner-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  --glass-glow-white: 0 0 25px rgba(255, 255, 255, 0.05);
+  --glass-shadow-main: 0 30px 80px rgba(0, 0, 0, 0.95);
+  --glass-shadow-card: 0 15px 40px rgba(0, 0, 0, 0.85);
+  --glass-shadow-inset: inset 0 2px 10px rgba(0, 0, 0, 0.9);
+  --text-primary: #f8f8fc;
+  --text-secondary: #a0a0ab;
+  --text-tertiary: #6e6e7a;
+  --text-muted: #484852;
+  --text-disabled: #2c2c34;
+  --status-red-primary: #992222;
+  --status-red-dark: #4a1111;
+  --status-red-glow: rgba(153, 34, 34, 0.35);
+  --status-amber-dark: #4a3811;
+  --status-gray-dark: #2a2a32;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+  --blur-light: blur(10px);
+  --blur-medium: blur(20px);
+  --blur-heavy: blur(30px);
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
 }
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body {
+html {
   width: 100%;
   height: 100%;
-  background-color: var(--bg-deep-000);
+  background-color: var(--color-black-000);
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-black-000);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-x: hidden;
+  position: relative;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(25, 25, 38, 0.5) 0%, transparent 65%),
+    radial-gradient(circle at 15% 45%, rgba(15, 15, 22, 0.6) 0%, transparent 50%),
+    radial-gradient(circle at 85% 75%, rgba(10, 10, 16, 0.7) 0%, transparent 55%),
+    radial-gradient(circle at 50% 100%, rgba(5, 5, 8, 0.9) 0%, transparent 80%);
+  background-attachment: fixed;
 }
 
 ::-webkit-scrollbar {
@@ -58,12 +120,13 @@ html, body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-deep-000);
+  background: var(--color-black-000);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--bg-deep-500);
-  border-radius: var(--border-radius-xs);
+  background: var(--color-black-600);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-black-000);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -71,114 +134,139 @@ html, body {
 }
 
 ::selection {
-  background: rgba(255, 255, 255, 0.15);
-  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
 }
 
-body {
-  background-color: var(--bg-deep-000);
-  color: var(--text-main);
-  font-family: var(--font-sans);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow-x: hidden;
-  position: relative;
-  background-image: 
-    radial-gradient(circle at 50% 0%, rgba(20, 20, 30, 0.6) 0%, transparent 70%),
-    radial-gradient(circle at 10% 50%, rgba(12, 12, 18, 0.5) 0%, transparent 50%),
-    radial-gradient(circle at 90% 80%, rgba(8, 8, 12, 0.8) 0%, transparent 60%);
-  background-attachment: fixed;
-}
-
-.background-grid {
-  position: absolute;
+.bg-grid-overlay {
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.15;
+  opacity: 0.12;
   background-image: 
     linear-gradient(var(--glass-border-subtle) 1px, transparent 1px),
     linear-gradient(90deg, var(--glass-border-subtle) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background-size: 50px 50px;
+}
+
+.bg-ambient-glow {
+  position: fixed;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(ellipse at center, rgba(40, 40, 60, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 header {
   position: relative;
-  z-index: 10;
+  z-index: 20;
   width: 100%;
-  padding: 28px 48px;
+  padding: 24px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--glass-border-subtle);
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(2, 2, 3, 0.85);
+  backdrop-filter: var(--blur-medium);
+  -webkit-backdrop-filter: var(--blur-medium);
 }
 
-.brand-wrapper {
+.brand-container {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   user-select: none;
 }
 
-.brand-icon {
-  width: 28px;
-  height: 28px;
+.brand-icon-wrapper {
+  width: 32px;
+  height: 32px;
+  background: var(--color-black-500);
+  border: 1px solid var(--glass-border-medium);
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: var(--glass-inner-shadow);
 }
 
-.brand-icon svg {
-  width: 100%;
-  height: 100%;
-  fill: var(--text-main);
+.brand-icon-wrapper svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--text-primary);
+}
+
+.brand-text-block {
+  display: flex;
+  flex-direction: column;
 }
 
 .brand-title {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--text-main);
+  color: var(--text-primary);
 }
 
-.system-tag {
+.brand-subtitle {
+  font-size: 0.68rem;
+  font-family: var(--font-mono);
+  color: var(--text-tertiary);
+  letter-spacing: 1.5px;
+}
+
+.header-status-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.status-chip {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-family: var(--font-mono);
-  color: var(--text-subtle);
-  background: var(--bg-deep-300);
-  padding: 8px 16px;
-  border-radius: var(--border-radius-xl);
+  color: var(--text-secondary);
+  background: var(--color-black-400);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
   border: 1px solid var(--glass-border-medium);
+  box-shadow: var(--glass-inner-shadow);
   user-select: none;
 }
 
-.status-indicator {
+.status-dot-offline {
   width: 8px;
   height: 8px;
-  background-color: var(--status-offline-red);
+  background-color: var(--status-red-primary);
   border-radius: 50%;
-  box-shadow: 0 0 10px var(--status-offline-red-glow);
+  box-shadow: 0 0 10px var(--status-red-glow);
+}
+
+.status-dot-gray {
+  width: 8px;
+  height: 8px;
+  background-color: var(--text-muted);
+  border-radius: 50%;
 }
 
 main {
   position: relative;
   z-index: 10;
-  max-width: 1100px;
+  max-width: 1240px;
   width: 100%;
   margin: 0 auto;
-  padding: 80px 24px;
+  padding: 60px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -186,21 +274,21 @@ main {
   flex-grow: 1;
 }
 
-.hero-glass-card {
+.hero-glass-panel {
   width: 100%;
-  background: var(--glass-surface-base);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: var(--glass-bg-primary);
+  backdrop-filter: var(--blur-heavy);
+  -webkit-backdrop-filter: var(--blur-heavy);
   border: 1px solid var(--glass-border-medium);
-  border-radius: var(--border-radius-lg);
-  padding: 70px 40px;
+  border-radius: var(--radius-lg);
+  padding: 80px 48px;
   text-align: center;
-  box-shadow: var(--glass-shadow-ambient);
+  box-shadow: var(--glass-shadow-main);
   position: relative;
   overflow: hidden;
 }
 
-.hero-glass-card::before {
+.hero-glass-panel::before {
   content: '';
   position: absolute;
   top: 0;
@@ -210,7 +298,7 @@ main {
   background: linear-gradient(90deg, transparent, var(--glass-border-strong), transparent);
 }
 
-.hero-glass-card::after {
+.hero-glass-panel::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -220,96 +308,182 @@ main {
   background: linear-gradient(90deg, transparent, var(--glass-border-subtle), transparent);
 }
 
-.code-container {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 24px;
+.glass-corner-accent-tl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-top: 2px solid var(--glass-border-strong);
+  border-left: 2px solid var(--glass-border-strong);
+  border-top-left-radius: var(--radius-lg);
+  pointer-events: none;
 }
 
-.large-error-code {
-  font-size: 11rem;
-  font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: -6px;
-  font-family: var(--font-sans);
-  background: linear-gradient(180deg, #ffffff 0%, #4a4a52 60%, #151518 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  user-select: none;
+.glass-corner-accent-tr {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-top: 2px solid var(--glass-border-strong);
+  border-right: 2px solid var(--glass-border-strong);
+  border-top-right-radius: var(--radius-lg);
+  pointer-events: none;
 }
 
-.error-title {
-  font-size: 2rem;
-  font-weight: 500;
-  color: var(--text-main);
-  margin-bottom: 18px;
-  letter-spacing: 2px;
+.glass-corner-accent-bl {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-bottom: 2px solid var(--glass-border-subtle);
+  border-left: 2px solid var(--glass-border-subtle);
+  border-bottom-left-radius: var(--radius-lg);
+  pointer-events: none;
 }
 
-.error-divider {
-  width: 60px;
-  height: 2px;
-  background: var(--glass-border-strong);
-  margin: 0 auto 24px auto;
+.glass-corner-accent-br {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-bottom: 2px solid var(--glass-border-subtle);
+  border-right: 2px solid var(--glass-border-subtle);
+  border-bottom-right-radius: var(--radius-lg);
+  pointer-events: none;
 }
 
-.error-message {
-  font-size: 1.05rem;
-  color: var(--text-body);
-  max-width: 640px;
-  margin: 0 auto;
-  line-height: 1.8;
-  font-weight: 400;
-}
-
-.panel-section {
-  width: 100%;
-}
-
-.panel-header {
-  display: flex;
+.hero-badge-container {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  padding: 0 4px;
-}
-
-.panel-title-text {
-  font-size: 0.85rem;
+  gap: 8px;
+  padding: 6px 16px;
+  background: var(--color-black-500);
+  border: 1px solid var(--glass-border-medium);
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
   font-family: var(--font-mono);
-  color: var(--text-subtle);
-  letter-spacing: 2px;
+  color: var(--text-tertiary);
+  margin-bottom: 30px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
 }
 
-.panel-badge {
+.hero-error-display {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+.hero-error-number {
+  font-size: 13rem;
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -8px;
+  font-family: var(--font-sans);
+  background: linear-gradient(180deg, #ffffff 0%, #5a5a66 65%, #18181c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.9));
+}
+
+.hero-main-title {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+
+.hero-divider-line {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--glass-border-strong), transparent);
+  margin: 0 auto 28px auto;
+}
+
+.hero-description-text {
+  font-size: 1.08rem;
+  color: var(--text-secondary);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.85;
+  font-weight: 400;
+}
+
+.section-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+}
+
+.section-title-label {
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  color: var(--text-tertiary);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title-label::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--text-tertiary);
+  border-radius: 50%;
+}
+
+.section-status-tag {
   font-size: 0.75rem;
   font-family: var(--font-mono);
   color: var(--text-muted);
-  background: var(--bg-deep-300);
-  padding: 4px 10px;
-  border-radius: var(--border-radius-xs);
+  background: var(--color-black-400);
+  padding: 5px 12px;
+  border-radius: var(--radius-xs);
   border: 1px solid var(--glass-border-subtle);
 }
 
-.telemetry-grid {
+.grid-quad-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.grid-triple-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: 100%;
 }
 
 .telemetry-card {
-  background: var(--glass-surface-base);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: var(--glass-bg-secondary);
+  backdrop-filter: var(--blur-medium);
+  -webkit-backdrop-filter: var(--blur-medium);
   border: 1px solid var(--glass-border-medium);
-  border-radius: var(--border-radius-md);
+  border-radius: var(--radius-md);
   padding: 28px 24px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  box-shadow: var(--glass-shadow-panel);
+  gap: 18px;
+  box-shadow: var(--glass-shadow-card);
   position: relative;
   overflow: hidden;
 }
@@ -324,318 +498,599 @@ main {
   background: linear-gradient(90deg, transparent, var(--glass-border-medium), transparent);
 }
 
-.card-top {
+.card-header-flex {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.card-icon-box {
-  width: 36px;
-  height: 36px;
-  background: var(--bg-deep-400);
-  border-radius: var(--border-radius-sm);
+.card-icon-container {
+  width: 40px;
+  height: 40px;
+  background: var(--color-black-500);
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--glass-border-subtle);
+  box-shadow: var(--glass-inner-shadow);
 }
 
-.card-icon-box svg {
-  width: 18px;
-  height: 18px;
-  fill: var(--text-subtle);
+.card-icon-container svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--text-tertiary);
 }
 
-.card-state-tag {
-  font-size: 0.75rem;
+.card-state-pill {
+  font-size: 0.72rem;
   font-family: var(--font-mono);
   color: var(--text-muted);
+  background: var(--color-black-300);
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--glass-border-faint);
   letter-spacing: 1px;
 }
 
-.card-heading {
+.card-state-pill.alert {
+  color: #c54f4f;
+  background: rgba(149, 34, 34, 0.15);
+  border-color: rgba(149, 34, 34, 0.3);
+}
+
+.card-title-text {
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--text-main);
+  color: var(--text-primary);
   letter-spacing: 0.5px;
 }
 
-.card-text {
-  font-size: 0.9rem;
-  color: var(--text-subtle);
-  line-height: 1.6;
+.card-body-text {
+  font-size: 0.88rem;
+  color: var(--text-tertiary);
+  line-height: 1.65;
+  font-weight: 400;
 }
 
-.console-container {
+.audit-table-wrapper {
   width: 100%;
-}
-
-.console-card {
-  background: var(--bg-deep-100);
+  background: var(--glass-bg-secondary);
+  backdrop-filter: var(--blur-medium);
+  -webkit-backdrop-filter: var(--blur-medium);
   border: 1px solid var(--glass-border-medium);
-  border-radius: var(--border-radius-md);
-  padding: 28px;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--text-subtle);
-  line-height: 1.9;
-  box-shadow: inset 0 2px 15px rgba(0, 0, 0, 0.95), var(--glass-shadow-panel);
-  position: relative;
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-shadow-card);
+  overflow: hidden;
 }
 
-.console-topbar {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 20px;
-  padding-bottom: 16px;
+.audit-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.audit-table th {
+  background: var(--color-black-500);
+  color: var(--text-tertiary);
+  padding: 16px 24px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   border-bottom: 1px solid var(--glass-border-subtle);
 }
 
-.console-circle {
+.audit-table td {
+  padding: 18px 24px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--glass-border-faint);
+}
+
+.audit-table tr:last-child td {
+  border-bottom: none;
+}
+
+.audit-table tr:hover td {
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.table-tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  font-size: 0.72rem;
+  background: var(--color-black-400);
+  border: 1px solid var(--glass-border-subtle);
+  color: var(--text-tertiary);
+}
+
+.table-tag.terminated {
+  color: var(--status-red-primary);
+  background: var(--status-red-dark);
+  border-color: rgba(153, 34, 34, 0.4);
+}
+
+.console-terminal-block {
+  width: 100%;
+  background: var(--color-black-100);
+  border: 1px solid var(--glass-border-medium);
+  border-radius: var(--radius-md);
+  padding: 30px;
+  font-family: var(--font-mono);
+  font-size: 0.83rem;
+  color: var(--text-tertiary);
+  line-height: 2;
+  box-shadow: var(--glass-shadow-inset), var(--glass-shadow-card);
+  position: relative;
+}
+
+.console-topbar-flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--glass-border-subtle);
+}
+
+.console-window-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: var(--bg-deep-500);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: var(--color-black-600);
+  border: 1px solid var(--glass-border-subtle);
 }
 
-.console-label {
+.console-window-title {
   margin-left: auto;
   font-size: 0.75rem;
   color: var(--text-muted);
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
 }
 
-.console-line {
+.console-row-flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.02);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.025);
   padding: 8px 0;
 }
 
-.console-key {
-  color: var(--text-subtle);
+.console-key-label {
+  color: var(--text-tertiary);
 }
 
-.console-value {
-  color: var(--text-body);
+.console-val-output {
+  color: var(--text-secondary);
 }
 
-.console-value.critical {
-  color: var(--status-offline-red);
+.console-val-output.error-highlight {
+  color: #d15656;
   font-weight: 600;
 }
 
-.console-value.dim {
+.console-val-output.dimmed {
   color: var(--text-muted);
+}
+
+.hash-panel-container {
+  width: 100%;
+  background: var(--glass-bg-primary);
+  backdrop-filter: var(--blur-medium);
+  -webkit-backdrop-filter: var(--blur-medium);
+  border: 1px solid var(--glass-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.hash-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  word-break: break-all;
+}
+
+.hash-label {
+  color: var(--text-muted);
+  min-width: 120px;
+  letter-spacing: 1px;
+}
+
+.hash-value {
+  color: var(--text-tertiary);
 }
 
 footer {
   position: relative;
-  z-index: 10;
+  z-index: 20;
   width: 100%;
-  padding: 36px 48px;
+  padding: 40px 50px;
   border-top: 1px solid var(--glass-border-subtle);
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(1, 1, 2, 0.95);
+  backdrop-filter: var(--blur-medium);
+  -webkit-backdrop-filter: var(--blur-medium);
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 20px;
   font-size: 0.8rem;
   color: var(--text-muted);
   font-family: var(--font-mono);
 }
 
-.footer-notice {
+.footer-left-info {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 
-.footer-bullet {
+.footer-bullet-separator {
   width: 4px;
   height: 4px;
   background-color: var(--text-muted);
   border-radius: 50%;
 }
 
+.footer-right-info {
+  letter-spacing: 1px;
+  color: var(--text-disabled);
+}
+
+@media (max-width: 1200px) {
+  .grid-quad-layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-triple-layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 868px) {
   header {
     padding: 20px 24px;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
   }
-  
+  .header-status-group {
+    width: 100%;
+    justify-content: space-between;
+  }
   main {
     padding: 40px 16px;
-    gap: 32px;
+    gap: 36px;
   }
-  
-  .hero-glass-card {
-    padding: 48px 20px;
+  .hero-glass-panel {
+    padding: 50px 20px;
   }
-  
-  .large-error-code {
-    font-size: 7rem;
+  .hero-error-number {
+    font-size: 7.5rem;
+    letter-spacing: -4px;
   }
-  
-  .error-title {
+  .hero-main-title {
     font-size: 1.5rem;
   }
-  
-  .error-message {
+  .hero-description-text {
     font-size: 0.95rem;
   }
-  
-  .telemetry-grid {
+  .grid-quad-layout,
+  .grid-triple-layout {
     grid-template-columns: 1fr;
   }
-  
-  .console-card {
+  .audit-table-wrapper {
+    overflow-x: auto;
+  }
+  .audit-table {
+    min-width: 600px;
+  }
+  .console-terminal-block {
     padding: 20px 16px;
   }
-  
-  footer {
-    padding: 24px 16px;
+  .console-row-flex {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .hash-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  footer {
+    padding: 30px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-error-number {
+    font-size: 5.5rem;
+  }
+  .hero-main-title {
+    font-size: 1.3rem;
+  }
+  .status-chip {
+    padding: 6px 12px;
+    font-size: 0.7rem;
   }
 }
 </style>
 </head>
 <body>
 
-<div class="background-grid"></div>
+<div class="bg-grid-overlay"></div>
+<div class="bg-ambient-glow"></div>
 
 <header>
-  <div class="brand-wrapper">
-    <div class="brand-icon">
+  <div class="brand-container">
+    <div class="brand-icon-wrapper">
       <svg viewBox="0 0 24 24">
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
       </svg>
     </div>
-    <span class="brand-title">SYSTEM ARCHIVE</span>
+    <div class="brand-text-block">
+      <span class="brand-title">SYSTEM ARCHIVE</span>
+      <span class="brand-subtitle">TERMINATED SYSTEM NODE</span>
+    </div>
   </div>
-  <div class="system-tag">
-    <div class="status-indicator"></div>
-    <span>SERVICE TERMINATED</span>
+  <div class="header-status-group">
+    <div class="status-chip">
+      <div class="status-dot-offline"></div>
+      <span>SYSTEM OFFLINE</span>
+    </div>
+    <div class="status-chip">
+      <div class="status-dot-gray"></div>
+      <span>NO ROUTE AVAILABLE</span>
+    </div>
   </div>
 </header>
 
 <main>
-  <section class="hero-glass-card">
-    <div class="code-container">
-      <div class="large-error-code">404</div>
+
+  <section class="hero-glass-panel">
+    <div class="glass-corner-accent-tl"></div>
+    <div class="glass-corner-accent-tr"></div>
+    <div class="glass-corner-accent-bl"></div>
+    <div class="glass-corner-accent-br"></div>
+
+    <div class="hero-badge-container">
+      <span>HTTP STATUS CODE 404</span>
     </div>
-    <h1 class="error-title">頁面不存在與服務終止</h1>
-    <div class="error-divider"></div>
-    <p class="error-message">
-      本網站及相關系統服務已正式停止更新與維護。您所存取的網址資源目前不可用，且伺服器已進入永久歸檔狀態，不再開放任何內容存取與頁面導向。
+
+    <div class="hero-error-display">
+      <div class="hero-error-number">404</div>
+    </div>
+
+    <h1 class="hero-main-title">頁面不存在與服務永久停止更新</h1>
+    <div class="hero-divider-line"></div>
+    
+    <p class="hero-description-text">
+      本網站及相關系統模組已正式宣佈停止營運與維護。您目前所存取的 URL 資源已從伺服器路由表中永久移除，全站系統已轉入唯讀歸檔狀態，不再提供任何頁面導向、跳轉或線上服務支援。
     </p>
   </section>
 
-  <section class="panel-section">
-    <div class="panel-header">
-      <span class="panel-title-text">TERMINATION STATUS</span>
-      <span class="panel-badge">ARCHIVED</span>
+  <section class="section-container">
+    <div class="section-header-row">
+      <span class="section-title-label">TERMINATION METRICS & TELEMETRY</span>
+      <span class="section-status-tag">LIFECYCLE: END OF LIFE</span>
     </div>
-    <div class="telemetry-grid">
+
+    <div class="grid-quad-layout">
       
       <div class="telemetry-card">
-        <div class="card-top">
-          <div class="card-icon-box">
+        <div class="card-header-flex">
+          <div class="card-icon-container">
             <svg viewBox="0 0 24 24">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
             </svg>
           </div>
-          <span class="card-state-tag">OFFLINE</span>
+          <span class="card-state-tag alert">OFFLINE</span>
         </div>
-        <div class="card-heading">站點更新停止</div>
-        <div class="card-text">全站開發與營運維護工作已完全終止，系統不再更新任何頁面或提供線上服務。</div>
+        <div class="card-title-text">網站停更公告</div>
+        <div class="card-text">全站所有開發計畫、內容更新與系統維護作業已完全終止，伺服器不再接收新資料。</div>
       </div>
 
       <div class="telemetry-card">
-        <div class="card-top">
-          <div class="card-icon-box">
+        <div class="card-header-flex">
+          <div class="card-icon-container">
             <svg viewBox="0 0 24 24">
               <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
             </svg>
           </div>
           <span class="card-state-tag">LOCKED</span>
         </div>
-        <div class="card-heading">導向連結關閉</div>
-        <div class="card-text">內部路由與外部導向連結均已永久撤銷，阻斷任何資源跳轉與請求回應。</div>
+        <div class="card-title-text">路由連結封鎖</div>
+        <div class="card-text">內部頁面導向、選單連結與外部存取入口已全數註銷，切斷所有頁面間的存取路徑。</div>
       </div>
 
       <div class="telemetry-card">
-        <div class="card-top">
-          <div class="card-icon-box">
+        <div class="card-header-flex">
+          <div class="card-icon-container">
             <svg viewBox="0 0 24 24">
               <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
             </svg>
           </div>
-          <span class="card-state-tag">STATIC</span>
+          <span class="card-state-tag">ARCHIVED</span>
         </div>
-        <div class="card-heading">靜態狀態歸檔</div>
-        <div class="card-text">本頁面為唯一的靜態終端回應，伺服器僅會維持基本狀態回應不進行動態演算。</div>
+        <div class="card-title-text">靜態終端歸檔</div>
+        <div class="card-text">當前頁面為系統唯一保留的靜態回應終端，僅用於向客戶端宣告服務終止狀態。</div>
+      </div>
+
+      <div class="telemetry-card">
+        <div class="card-header-flex">
+          <div class="card-icon-container">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+            </svg>
+          </div>
+          <span class="card-state-tag">REVOKED</span>
+        </div>
+        <div class="card-title-text">憑證與 API 註銷</div>
+        <div class="card-text">全站 API 通訊金鑰與端點授權已於伺服器端完成作廢程序，拒絕一切外部連線。</div>
       </div>
 
     </div>
   </section>
 
-  <section class="console-container">
-    <div class="panel-header">
-      <span class="panel-title-text">SYSTEM DIAGNOSTICS LOG</span>
-      <span class="panel-badge">READ ONLY</span>
+  <section class="section-container">
+    <div class="section-header-row">
+      <span class="section-title-label">SYSTEM ARCHIVE AUDIT DIRECTORY</span>
+      <span class="section-status-tag">READ ONLY DATABASE</span>
     </div>
-    <div class="console-card">
-      <div class="console-topbar">
-        <div class="console-circle"></div>
-        <div class="console-circle"></div>
-        <div class="console-circle"></div>
-        <span class="console-label">EOT_DIAGNOSTIC_TRACE</span>
+
+    <div class="audit-table-wrapper">
+      <table class="audit-table">
+        <thead>
+          <tr>
+            <th>SUBSYSTEM MODULE</th>
+            <th>COMPONENT IDENTIFIER</th>
+            <th>DECOMMISSION DATE</th>
+            <th>FINAL OPERATIONAL STATE</th>
+            <th>STATUS TAG</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>WEB FRONTEND ROUTER</td>
+            <td>MOD-HTTP-ROUTER-V4</td>
+            <td>2026-07-29</td>
+            <td>ALL ROUTES PURGED FROM DISPATCH TABLE</td>
+            <td><span class="table-tag terminated">TERMINATED</span></td>
+          </tr>
+          <tr>
+            <td>CORE API GATEWAY</td>
+            <td>MOD-GATEWAY-REST-API</td>
+            <td>2026-07-29</td>
+            <td>ENDPOINTS DISABLED / ACCESS REVOKED</td>
+            <td><span class="table-tag terminated">TERMINATED</span></td>
+          </tr>
+          <tr>
+            <td>DATABASE CLUSTER</td>
+            <td>DB-MAIN-CLUSTER-01</td>
+            <td>2026-07-29</td>
+            <td>CONNECTIONS CLOSED / READ-ONLY ARCHIVE</td>
+            <td><span class="table-tag">ARCHIVED</span></td>
+          </tr>
+          <tr>
+            <td>CDN EDGE NODES</td>
+            <td>EDGE-CACHE-GLOBAL</td>
+            <td>2026-07-29</td>
+            <td>CACHE FLUSHED / STATIC 404 OVERRIDE</td>
+            <td><span class="table-tag">STATIC</span></td>
+          </tr>
+          <tr>
+            <td>USER AUTH SERVICE</td>
+            <td>AUTH-OAUTH2-PROVIDER</td>
+            <td>2026-07-29</td>
+            <td>TOKEN ISSUANCE SUSPENDED PERMANENTLY</td>
+            <td><span class="table-tag terminated">TERMINATED</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section-container">
+    <div class="section-header-row">
+      <span class="section-title-label">TERMINAL DIAGNOSTICS LOG</span>
+      <span class="section-status-tag">CONSOLE TRACE ID: #0x8F3C1A9E</span>
+    </div>
+
+    <div class="console-terminal-block">
+      <div class="console-topbar-flex">
+        <div class="console-window-dot"></div>
+        <div class="console-window-dot"></div>
+        <div class="console-window-dot"></div>
+        <span class="console-window-title">SYSTEM_DIAGNOSTIC_TRACE_LOG.RAW</span>
       </div>
-      <div class="console-line">
-        <span class="console-key">HTTP_RESPONSE_STATUS</span>
-        <span class="console-value critical">404 RESOURCE NOT FOUND</span>
+
+      <div class="console-row-flex">
+        <span class="console-key-label">HTTP_RESPONSE_STATUS</span>
+        <span class="console-val-output error-highlight">HTTP/1.1 404 NOT FOUND</span>
       </div>
-      <div class="console-line">
-        <span class="console-key">SERVICE_LIFECYCLE</span>
-        <span class="console-value">END_OF_LIFE (PERMANENT)</span>
+      <div class="console-row-flex">
+        <span class="console-key-label">SYSTEM_OPERATIONAL_LIFECYCLE</span>
+        <span class="console-val-output">PERMANENT_END_OF_LIFE</span>
       </div>
-      <div class="console-line">
-        <span class="console-key">ROUTER_DISPATCH_STATE</span>
-        <span class="console-value dim">DISABLED</span>
+      <div class="console-row-flex">
+        <span class="console-key-label">REQUESTED_URI_PATH</span>
+        <span class="console-val-output dimmed">/UNRESOLVED_RESOURCE_TARGET</span>
       </div>
-      <div class="console-line">
-        <span class="console-key">DATABASE_CONNECTIONS</span>
-        <span class="console-value dim">0 ACTIVE / TERMINATED</span>
+      <div class="console-row-flex">
+        <span class="console-key-label">SERVER_HOSTNAME_NODE</span>
+        <span class="console-val-output">NODE-BLACK-ARCHIVE-01</span>
       </div>
-      <div class="console-line">
-        <span class="console-key">API_GATEWAY_ACCESS</span>
-        <span class="console-value dim">REVOKED</span>
+      <div class="console-row-flex">
+        <span class="console-key-label">ROUTER_DISPATCH_POLICY</span>
+        <span class="console-val-output dimmed">NULL_ROUTE_REJECTION</span>
       </div>
-      <div class="console-line">
-        <span class="console-key">SYSTEM_ARCHIVE_ID</span>
-        <span class="console-value">0x00000000_EOL_NULL</span>
+      <div class="console-row-flex">
+        <span class="console-key-label">ACTIVE_DATABASE_POOL</span>
+        <span class="console-val-output dimmed">0 CONNECTIONS (SHUTDOWN)</span>
+      </div>
+      <div class="console-row-flex">
+        <span class="console-key-label">CACHE_INvalidation_STATE</span>
+        <span class="console-val-output">COMPLETE_PURGE_SUCCESS</span>
+      </div>
+      <div class="console-row-flex">
+        <span class="console-key-label">SECURITY_CONTEXT_AUTH</span>
+        <span class="console-val-output dimmed">ANONYMOUS_ACCESS_ONLY</span>
+      </div>
+      <div class="console-row-flex">
+        <span class="console-key-label">CLIENT_GATEWAY_ACCESS</span>
+        <span class="console-val-output error-highlight">BLOCKED_PERMANENTLY</span>
+      </div>
+      <div class="console-row-flex">
+        <span class="console-key-label">DIAGNOSTIC_TIMESTAMP_UTC</span>
+        <span class="console-val-output">2026-07-29T12:18:49Z</span>
       </div>
     </div>
   </section>
+
+  <section class="section-container">
+    <div class="section-header-row">
+      <span class="section-title-label">ARCHIVE INTEGRITY CHECKSUM</span>
+      <span class="section-status-tag">SHA-256 HASH</span>
+    </div>
+
+    <div class="hash-panel-container">
+      <div class="hash-row">
+        <span class="hash-label">SYSTEM_HASH:</span>
+        <span class="hash-value">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</span>
+      </div>
+      <div class="hash-row">
+        <span class="hash-label">ARCHIVE_KEY:</span>
+        <span class="hash-value">f84a91c203b572a1d9902e4b85c2901a18204b7264a2b01d3941a830bdf20a11</span>
+      </div>
+      <div class="hash-row">
+        <span class="hash-label">BLOCK_SIG:</span>
+        <span class="hash-value">0x00000000000000000003b87a0b9d8e7a6f2c5d4b3a1e0f9c8b7a6f5e4d3c2b1a</span>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
-  <div class="footer-notice">
-    <span>SYSTEM STATUS: END OF SERVICE</span>
-    <div class="footer-bullet"></div>
-    <span>ALL RIGHTS RESERVED</span>
+  <div class="footer-left-info">
+    <span>SYSTEM ARCHIVE MODE</span>
+    <div class="footer-bullet-separator"></div>
+    <span>ALL SERVICES TERMINATED PERMANENTLY</span>
+    <div class="footer-bullet-separator"></div>
+    <span>2026</span>
   </div>
-  <div>
-    ARCHIVE STATE DIRECTORY • NO ACTIVE NAVIGATION
+  <div class="footer-right-info">
+    NO NAVIGATION ROUTES AVAILABLE • STATIC TERMINAL
   </div>
 </footer>
 
